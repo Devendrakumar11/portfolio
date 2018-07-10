@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Square loader</title>
+	<style type="text/css">
+		$color: blue;
+		$duration: 2s;
+		$width: 4px;
+
+body {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  margin: 0;
+}
+
+div {
+  position: absolute;
+  width: 10vw;
+  min-width: 30px;
+  height: 10vw;
+  min-height: 30px;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  border: 5px solid black;
+  animation: load-rotate 4s infinite;
+}
+
+div:before {
+  position: absolute;
+  width: 10vw;
+  min-width: 30px;
+  height: 10vw;
+  min-height: 30px;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  border: 5px solid black;
+  animation: load-rotate 4s infinite;
+}
+  
+  @keyframes load-rotate{
+  	24.9%{
+  		transform: translateY(-50%) translateX(-50%) rotate(0deg);
+  	}
+
+  	25%{
+  		transform: translateY(-50%) translateY(-50%) rotate(90deg);
+  	}
+
+  	49.9%{
+  		transform: translateY(-50%) translateX(-50%) rotate(90deg);
+  	}
+
+  	50%{
+  		transform: translateY(-50%) translateX(-50%) rotate(180deg);
+  	}
+  	74.9%{
+  		transform: translateY(-50%) translateX(-50%) rotate(180deg);
+  	}
+  	75%{
+  		transform: translateY(-50%) translateX(-50%) rotate(270deg);
+  	}
+  	100%{
+  		transform: translateY(-50%) translateX(-50%) rotate(270deg);
+  	}
+
+  	span {
+  		display: block;
+  		position: absolute;
+  		top: 0;
+  		left: 0;
+ 	 	right: 0;
+  		bottom: 0;
+  	}
+
+  	span:before{
+  		content: '';
+   	 	position: absolute;
+    	background: blue;
+    	transform: scaleX(0);
+  	}
+
+  	span:after{
+  		content: '';
+   	 	position: absolute;
+    	background: blue;
+    	transform: scaleY(0);
+  	}
+
+  	.one{
+  		 top: 0;
+    	left: 0;
+    	width: 100%;
+    	height: 4px;
+    	animation: one 2s forwards infinite;
+  	}
+  	.one:before{
+  		 top: 0;
+    	left: 0;
+    	width: 100%;
+    	height: 4px;
+    	animation: one 2s forwards infinite;
+  	}
+
+  	@keyframes one {
+      0%{transform: scaleX(0);transform-origin: left;}
+      12.5%{transform: scaleX(1)}
+      37.5%{transform-origin: left;}
+      50%{transform: scaleX(1);transform-origin: right;}
+      62.5%{transform: scaleX(0);}
+      100%{transform-origin: right;}
+    }
+  }
+
+  .one:after{
+  	 	top: 0;
+    	right: 0;
+    	height: 100%;
+    	width: 4px;
+    	animation: two 2s forwards infinite;
+  }
+
+  @keyframes two {
+      12.5%{transform: scaleY(0);transform-origin: top;}
+      25%{transform: scaleY(1)}
+      50%{transform-origin: top;}
+      62.5%{transform: scaleY(1);transform-origin: bottom;}
+      75%{transform: scaleY(0);}
+      100%{transform-origin: bottom;}
+    }
+  }
+}
+
+.two:before{
+		bottom: 0;
+    	right: 0;
+    	width: 100%;
+    	height: 4px;
+    	animation: three 2s forwards infinite;
+}
+
+@keyframes three {
+      25.5%{transform: scaleX(0);transform-origin: right;}
+      37.5%{transform: scaleX(1)}
+      50%{transform-origin: right;}
+      75%{transform: scaleX(1);transform-origin: left;}
+      82.5%{transform: scaleX(0);}
+      100%{transform-origin: left;}
+    }
+  }
+
+  .two:after{
+  	 	bottom: 0;
+    	left: 0;
+    	height: 100%;
+    	width: 4px;
+    	animation: four 2s forwards infinite;
+  }
+
+  @keyframes four {
+      37.5%{transform: scaleY(0);transform-origin: bottom;}
+      50%{transform: scaleY(1)}
+      75%{transform-origin: bottom;}
+      82.5%{transform: scaleY(1);transform-origin: top;}
+      100%{transform: scaleY(0);transform-origin: top;}
+    }
+  }
+}
+
+	</style>
+</head>
+<body>
+	<div>
+  <span class="one"></span>
+  <span class="two"></span>
+</div>
+</body>
+</html>
